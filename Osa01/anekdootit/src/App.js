@@ -18,7 +18,6 @@ const App = () => {
 
   const mostVotesIndex = points.indexOf(Math.max(...points));
 
-
   const handleClick = () => {
     const randomIndex = Math.floor(Math.random() * anecdotes.length);
     setSelected(randomIndex);
@@ -42,9 +41,9 @@ const App = () => {
       <h1>Anecdote with most votes</h1>
       <p>{anecdotes[mostVotesIndex]}</p>
       <p>has {points[mostVotesIndex]} votes</p>
-    
     </div>
   );
 };
 
 export default App;
+

@@ -1,13 +1,23 @@
+import { useState } from "react";
+
+const Total = ({ parts }) => {
+   
+  
+    const total = parts.reduce((total, part) => {
+        return total + part.exercises;
+      }, 0);     
+        
+
+        
 
 
-const Total = (props) => {
-    return (
-        <div>
-            <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
-        </div>
-    );
-}
+  return (
+    <div>
+      {}
+
+      <p>Number of exercises {total}</p>
+    </div>
+  );
+};
 
 export default Total;
-
-
