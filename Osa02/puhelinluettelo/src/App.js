@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Search from "./components/Search";
 import Form from "./components/Form";
 import Persons from "./components/Persons";
-import axios from "axios";
+import axios, { HttpStatusCode } from "axios";
 import personService from "./services/persons";
 import Notification from "./components/Notification";
 
@@ -29,7 +29,6 @@ const App = () => {
       personService
         .deletePerson(id)
         setMessageColor('red')
-        console.log(messageColor)
         setMessage(`Deleted ${name}`)
         setTimeout(() => {
           setMessage(null)
@@ -66,7 +65,10 @@ const App = () => {
         `${newName} is already added to phonebook, replace the old number with a new one?`
       );
 
+      
+
       if (replace) {
+        
         const foundPerson = persons.find(
           (person) => person.name.toLowerCase() === newName.toLowerCase()
         );
@@ -86,6 +88,7 @@ const App = () => {
             )
             
           ).catch(error => {
+            console.log(error.response.data)
             setMessageColor('red')
             setMessage(`Informaton of ${foundPerson.name} has already been removed from server`)
             setTimeout(() => {
@@ -110,17 +113,35 @@ const App = () => {
     };
 
     personService.create(personObject).then((personFound) => {
-      setPersons(persons.concat(personFound));
-    });
-    setMessageColor('green')
-    setMessage(`Added ${newName}`)
-    setTimeout(() => {
-      setMessage(null)
-    }, 5000)
 
-    setNewName("");
-    setPhoneNumber("");
-  };
+      
+     
+      setPersons(persons.concat(personFound));
+    }).catch(error => {
+      setMessageColor('red')
+      setMessage(error.response.data.error)
+      console.log(error.response.data)
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000)
+    })
+
+    if (personObject.name === '' || personObject.number === '' || personObject.name.length < 3) {
+      return 
+    } else {
+      setMessageColor('green')
+      setMessage(`Added ${newName}`)
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000)
+  
+      setNewName("");
+      setPhoneNumber("");
+    };
+    }
+
+    
+
 
   return (
     <div>
