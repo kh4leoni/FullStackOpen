@@ -1,7 +1,6 @@
 const express = require('express')
-// eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config()
-
+require('express-async-errors')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')

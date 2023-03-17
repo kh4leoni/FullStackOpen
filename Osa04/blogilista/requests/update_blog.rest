@@ -1,0 +1,9 @@
+PUT http://localhost:3001/api/blogs/6413f2d0d693b0916626a07b
+Content-Type: application/json
+
+{
+  "title": "Heikin Eka setti",
+  "author": "Heikki Kivelä",
+  "url": "http://uusiurli.com",
+  "likes": 555
+}
