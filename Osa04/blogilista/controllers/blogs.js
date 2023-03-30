@@ -46,7 +46,8 @@ blogsRouter.delete('/:id', middleware.userExtractor, async (req, res) => {
     return res.status(401).json({ error: 'operation not permitted' })
   }
 
-  user.blogs = user.blogs.filter(b => b.toString() !== blog.id.toString() )
+  user.blogs = user.blogs.filter(b => b._id.toString() !== blog.id.toString() )
+  console.log(user.blogs)
 
   await user.save()
   await blog.remove()
