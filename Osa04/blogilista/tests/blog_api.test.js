@@ -26,7 +26,7 @@ test('all blog listings are returned as json', async () => {
 
 test('all blog listings are returned', async () => {
   const response = await api.get('/api/blogs')
-  console.log(response.body)
+
 
   expect(response.body).toHaveLength(helper.initialBlogs.length)
 })

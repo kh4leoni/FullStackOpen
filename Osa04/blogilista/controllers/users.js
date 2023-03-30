@@ -14,7 +14,7 @@ userRouter.post('/', async (req, res) => {
   const { username, name, password } = req.body
 
 
-  console.log(`username:${username}, name:${name}, password:${password}`)
+
 
   if (password.length < 3) {
     res.status(400).json(error)
@@ -30,7 +30,7 @@ userRouter.post('/', async (req, res) => {
       passwordHash,
     })
   
-    console.log(`this is console log ${user.username}, ${user.name}, ${user.passwordHash}`)
+
     const savedUser = await user.save()
   
     res.status(201).json(savedUser)
