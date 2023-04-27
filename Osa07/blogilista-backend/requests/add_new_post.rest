@@ -1,0 +1,11 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1haXRvSGFtbWFzIiwiaWQiOiI2NDFkMjMxZWNhMWQwY2JjNjEyM2FiNmQiLCJpYXQiOjE2Nzk2NjEzNDAsImV4cCI6MTY3OTY2NDk0MH0.lbMpIT96ov79UwdIiJ8jBZTS-SnKH2-3yd8LteeZfZE
+
+{
+    "title": "testi testi testi",
+    "author": "Tuomo Lutakko",
+    "url": "http://kaapeli.fi",
+    "likes": 51,
+    "userId": "641d2300ca1d0cbc6123ab69"
+}
